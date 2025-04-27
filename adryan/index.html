@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONITORAE - Gestão Hídrica Urbana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styler.css">
+    <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Tela Home -->
+        <div id="homeScreen" class="screen active">
+            <header class="app-header">
+                <div class="logo-container">
+                    <h1>MONITORAE</h1>
+                    <p class="subtitle">Modelo Tecnológico de Mitigação da Falta de Água</p>
+                </div>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Recife</span>
+                </div>
+            </header>
+            
+            <main class="app-main">
+                <div class="solutions-grid">
+                    <div class="solution-card" data-feature="leakDetection">
+                        <div class="card-icon bg-blue-100 text-blue-600">
+                            <i class="fas fa-tint-slash"></i>
+                        </div>
+                        <h3>Sensores de Vazamentos</h3>
+                        <p>Monitoramento inteligente de encanamentos</p>
+                        <div class="status-indicator active"></div>
+                    </div>
+                    
+                    <div class="solution-card" data-feature="rainHarvest">
+                        <div class="card-icon bg-green-100 text-green-600">
+                            <i class="fas fa-cloud-rain"></i>
+                        </div>
+                        <h3>Captação de Água da Chuva</h3>
+                        <p>Sensores automáticos de armazenamento</p>
+                        <div class="status-indicator active"></div>
+                    </div>
+                    
+                    <div class="solution-card" data-feature="communityApp">
+                        <div class="card-icon bg-purple-100 text-purple-600">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Gestão Comunitária</h3>
+                        <p>App com alertas em tempo real</p>
+                        <div class="status-indicator"></div>
+                    </div>
+                    
+                    <div class="solution-card" data-feature="predictiveAnalysis">
+                        <div class="card-icon bg-orange-100 text-orange-600">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Análise Preditiva</h3>
+                        <p>IA e Big Data para previsões</p>
+                        <div class="status-indicator active"></div>
+                    </div>
+                    
+                    <div class="solution-card" data-feature="waterReuse">
+                        <div class="card-icon bg-teal-100 text-teal-600">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <h3>Reaproveitamento</h3>
+                        <p>Águas cinzas para uso não potável</p>
+                        <div class="status-indicator"></div>
+                    </div>
+                </div>
+                
+                <div class="community-alert animate__animated animate__fadeInUp">
+                    <div class="alert-header">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>Alerta Comunitário</h3>
+                    </div>
+                    <p>Vazamento detectado na Rua da Aurora. Equipe em deslocamento.</p>
+                    <div class="alert-footer">
+                        <span class="time">há 15 min</span>
+                        <button class="btn-more">Detalhes</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Tela de Detalhes -->
+        <div id="featureScreen" class="screen">
+            <header class="app-header with-back">
+                <button class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h1 id="featureTitle">Recurso</h1>
+            </header>
+            
+            <main class="app-main">
+                <div class="feature-content">
+                    <div class="feature-image">
+                        <img id="featureImage" src="" alt="Exemplo do sistema">
+                    </div>
+                    <div id="featureContent"></div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn-action primary">
+                        <i class="fas fa-chart-line"></i> Ver Dados
+                    </button>
+                    <button class="btn-action secondary">
+                        <i class="fas fa-bell"></i> Receber Alertas
+                    </button>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Tela de Mapa -->
+        <div id="mapScreen" class="screen">
+            <header class="app-header with-back">
+                <button class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h1>Mapa de Recursos Hídricos</h1>
+            </header>
+            
+            <main class="app-main">
+                <div class="map-container">
+                    <div id="interactiveMap" class="map-view">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <p>Mapa interativo de recursos hídricos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-controls">
+                        <button class="map-filter active" data-layer="all">
+                            <i class="fas fa-layer-group"></i> Todos
+                        </button>
+                        <button class="map-filter" data-layer="leaks">
+                            <i class="fas fa-tint-slash"></i> Vazamentos
+                        </button>
+                        <button class="map-filter" data-layer="harvest">
+                            <i class="fas fa-cloud-rain"></i> Captação
+                        </button>
+                    </div>
+                    
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <span class="legend-color bg-red-500"></span>
+                            <span>Vazamentos ativos</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color bg-blue-500"></span>
+                            <span>Pontos de captação</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color bg-green-500"></span>
+                            <span>Áreas monitoradas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-report-card">
+                    <h3><i class="fas fa-chart-pie"></i> Resumo da Área</h3>
+                    <div class="report-stats">
+                        <div class="stat-item">
+                            <p>Vazamentos</p>
+                            <span class="stat-value">12</span>
+                        </div>
+                        <div class="stat-item">
+                            <p>Captação</p>
+                            <span class="stat-value">8</span>
+                        </div>
+                        <div class="stat-item">
+                            <p>Economia/mês</p>
+                            <span class="stat-value">1.2M L</span>
+                        </div>
+                    </div>
+                    <button class="btn-secondary">
+                        <i class="fas fa-download"></i> Exportar Dados
+                    </button>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Tela de Comunidade -->
+        <div id="communityScreen" class="screen">
+            <header class="app-header with-back">
+                <button class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h1>Comunidade MOVIMENTAE</h1>
+            </header>
+            
+            <main class="app-main">
+                <div class="community-header">
+                    <div class="user-profile">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Seu perfil" class="avatar">
+                        <div>
+                            <h3>Participante</h3>
+                            <p class="user-level">Nível 4 - Consciente</p>
+                        </div>
+                    </div>
+                    <div class="community-stats">
+                        <div class="stat-badge">
+                            <i class="fas fa-users"></i>
+                            <span>1.2K membros</span>
+                        </div>
+                        <div class="stat-badge">
+                            <i class="fas fa-tint-slash"></i>
+                            <span>86 vazamentos reportados</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="community-feeds">
+                    <div class="feed-tabs">
+                        <button class="feed-tab active" data-feed="reports">
+                            <i class="fas fa-flag"></i> Reportes
+                        </button>
+                        <button class="feed-tab" data-feed="discussions">
+                            <i class="fas fa-comments"></i> Discussões
+                        </button>
+                        <button class="feed-tab" data-feed="achievements">
+                            <i class="fas fa-trophy"></i> Conquistas
+                        </button>
+                    </div>
+                    
+                    <div class="feed-content">
+                        <div class="feed-item">
+                            <div class="feed-user">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva" class="avatar-sm">
+                                <div>
+                                    <h4>Carlos Silva</h4>
+                                    <p class="feed-time">há 2 horas</p>
+                                </div>
+                            </div>
+                            <p class="feed-text">Vazamento na Rua do Sol, 120. Já faz 3 dias que está vazando!</p>
+                            <div class="feed-actions">
+                                <button class="feed-action">
+                                    <i class="fas fa-check-circle"></i> Confirmar
+                                </button>
+                                <button class="feed-action">
+                                    <i class="fas fa-comment"></i> Comentar
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="feed-item hidden" data-feed="discussions">
+                            <div class="feed-user">
+                                <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Maria Oliveira" class="avatar-sm">
+                                <div>
+                                    <h4>Maria Oliveira</h4>
+                                    <p class="feed-time">ontem</p>
+                                </div>
+                            </div>
+                            <p class="feed-text">Alguém sabe quando vai chegar o sistema de captação no meu bairro?</p>
+                            <div class="feed-actions">
+                                <button class="feed-action">
+                                    <i class="fas fa-reply"></i> Responder
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-floating">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </main>
+        </div>
+        
+        <!-- Tela de Configurações -->
+        <div id="settingsScreen" class="screen">
+            <header class="app-header with-back">
+                <button class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h1>Configurações</h1>
+            </header>
+            
+            <main class="app-main">
+                <div class="settings-section">
+                    <h3><i class="fas fa-user-cog"></i> Conta</h3>
+                    <div class="settings-item">
+                        <i class="fas fa-user"></i>
+                        <span>Editar perfil</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="settings-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Privacidade</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <h3><i class="fas fa-bell"></i> Notificações</h3>
+                    <div class="settings-item toggle-item">
+                        <div>
+                            <i class="fas fa-tint-slash"></i>
+                            <span>Alertas de vazamentos</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-item toggle-item">
+                        <div>
+                            <i class="fas fa-cloud-rain"></i>
+                            <span>Previsão de chuva</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <h3><i class="fas fa-cog"></i> Geral</h3>
+                    <div class="settings-item">
+                        <i class="fas fa-moon"></i>
+                        <span>Tema escuro</span>
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Unidade de medida</span>
+                        <span class="setting-value">Litros</span>
+                    </div>
+                </div>
+                
+                <div class="settings-footer">
+                    <button class="btn-text">
+                        <i class="fas fa-question-circle"></i> Ajuda
+                    </button>
+                    <button class="btn-text text-red-500">
+                        <i class="fas fa-sign-out-alt"></i> Sair
+                    </button>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Barra de Navegação -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-screen="homeScreen">
+                <i class="fas fa-home"></i>
+                <span>Início</span>
+            </button>
+            <button class="nav-item" data-screen="mapScreen">
+                <i class="fas fa-map"></i>
+                <span>Mapa</span>
+            </button>
+            <button class="nav-item" data-screen="communityScreen">
+                <i class="fas fa-user-friends"></i>
+                <span>Comunidade</span>
+            </button>
+            <button class="nav-item" data-screen="settingsScreen">
+                <i class="fas fa-cog"></i>
+                <span>Configurações</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

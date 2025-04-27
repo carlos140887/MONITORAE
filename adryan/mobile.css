@@ -1,0 +1,54 @@
+/* Otimizações para mobile */
+@media (max-width: 400px) {
+    .solutions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .app-header {
+        padding: 1rem;
+    }
+    
+    .logo-container h1 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Efeitos de toque */
+button, .solution-card, .nav-item {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Feedback ao tocar */
+.solution-card:active {
+    transform: scale(0.98);
+}
+
+.btn-action:active {
+    opacity: 0.8;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-mobile {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Prevenir zoom em inputs */
+input, select, textarea {
+    font-size: 16px;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Melhor legibilidade em mobile */
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
